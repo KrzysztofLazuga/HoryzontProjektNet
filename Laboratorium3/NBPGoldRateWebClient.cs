@@ -41,7 +41,7 @@ namespace Laboratorium3
             try
             {
                 wynik = Get<GoldDTO[]>($"cenyzlota/{date.ToString(_dateFormat)}").First();
-                Console.WriteLine($"Notowanie w dniu: {wynik.Date}: {wynik.Price}");
+                return wynik;
             }
             catch (WebException ex)
             {
@@ -50,7 +50,7 @@ namespace Laboratorium3
                     var response =ex.Response as HttpWebResponse;
                     if (response.StatusCode == HttpStatusCode.NotFound)
                     {
-                        Console.WriteLine($"Brak notowania w dniu: {date.ToString(_dateFormat)}");
+                        return null!;
                     }
                 }
                 else

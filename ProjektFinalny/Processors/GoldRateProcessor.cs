@@ -1,9 +1,11 @@
 ﻿using Laboratorium2.Interfejsy;
 using Laboratorium3.Interfaces;
 using Laboratorium3.Models;
+using Microsoft.VisualBasic;
 using ProjektFinalny.Constants;
 using ProjektFinalny.Extensions;
 using ProjektFinalny.Interfaces;
+using System.Globalization;
 
 namespace ProjektFinalny.Processors;
 
@@ -37,6 +39,12 @@ internal class GoldRateProcessor : IGoldRateProcessor
                 break;
             case "4":
                 GetTopRateFromLast30Days();
+                break;
+            case "5":
+                ProcessGoldRateFromGivenDay();
+                break;
+            case "6":
+                ProcessAverageGoldRate();
                 break;
             default:
                 break;
@@ -81,6 +89,38 @@ internal class GoldRateProcessor : IGoldRateProcessor
         var formattedMessage = string.Format(Messages.TopGoldRate, topRate.Price, topRate.Date);
         _userLogger.Log(formattedMessage);
     }
+
+    private void ProcessAverageGoldRate()
+    {
+        var count = _userInputHandler.GetUserInput(Messages.GoldRatesCount).ToInt();
+        var rates = _goldRateWebClient.GetLastGoldRates(count);
+
+        var average = rates.Average(_ => _.Price);
+        var roundedAverage = Math.Round(average, 2);
+
+        var formattedMessage = string.Format(Messages.AverageGoldRate, count, roundedAverage);
+        _userLogger.Log(formattedMessage);
+    }
+
+    private void ProcessGoldRateFromGivenDay()
+    {
+        string dateString = _userInputHandler.GetUserInput(Messages.GetDate);
+        DateTime date;
+
+        if (DateTime.TryParseExact(dateString, ConstantValues.DateFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
+        {
+            var goldRate = _goldRateWebClient.GetGoldRateInSpecificDate(date);
+            if (goldRate == null)
+                _userLogger.Log(string.Format(Messages.NoRatesInSpecificDate, dateString));
+            else
+                _userLogger.Log(string.Format(Messages.GoldRateInSpecificDate, goldRate.Date.ToString(ConstantValues.DateFormat), goldRate.Price));
+        }
+        else
+        {
+            _userLogger.Log(string.Format(Messages.WrongDateFormat));
+        }
+    }
+
     private void PrintListDetails(GoldDTO[] rates)
     {
         _userLogger.Log(Messages.LastGoldRates);

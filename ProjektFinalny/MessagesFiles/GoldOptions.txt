@@ -2,3 +2,5 @@
 Seria ostatnich wybranych notowań cen złota - 2
 Cena złota opublikowana w dniu dzisiejszym (albo brak danych) - 3
 Najwyższa cena złota z ostatnich 30 notowań - 4
+Cena złota opublikowana w dni konkretnym dniu (albo brak danych) - 5
+Średnia cena złota z określonej liczby ostatnich notowań - 6

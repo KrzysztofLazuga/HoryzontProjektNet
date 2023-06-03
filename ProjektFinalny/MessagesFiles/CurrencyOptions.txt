@@ -1,3 +1,5 @@
 ﻿Aktualnie obowiązujący kurs waluty - 1
 Ostatnie notowania dla waluty - 2
 Kurs waluty z dnia dzisiejszego - 3
+Najwyższa cena danej waluty z ostatnich 30 notowań - 4
+Przeliczanie walut - 5

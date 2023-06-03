@@ -70,8 +70,20 @@ namespace ProjektFinalny {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Średnia cena złota z ostatnich {0} notowań wynosi {1}.
+        /// </summary>
+        internal static string AverageGoldRate {
+            get {
+                return ResourceManager.GetString("AverageGoldRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Aktualnie obowiązujący kurs waluty - 1
-        ///Ostatnie notowania dla waluty - 2.
+        ///Ostatnie notowania dla waluty - 2
+        ///Kurs waluty z dnia dzisiejszego - 3
+        ///Najwyższa cena danej waluty z ostatnich 30 notowań - 4
+        ///Przeliczanie walut - 5.
         /// </summary>
         internal static string CurrencyOptions {
             get {
@@ -89,6 +101,24 @@ namespace ProjektFinalny {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} w {1} wynosi {2} w {3}.
+        /// </summary>
+        internal static string ExchangeAmount {
+            get {
+                return ResourceManager.GetString("ExchangeAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Podaj kwotę.
+        /// </summary>
+        internal static string GetAmount {
+            get {
+                return ResourceManager.GetString("GetAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Podaj kod waluty.
         /// </summary>
         internal static string GetCurrencyCode {
@@ -98,14 +128,34 @@ namespace ProjektFinalny {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Podaj date w formacie RRRR-MM-DD.
+        /// </summary>
+        internal static string GetDate {
+            get {
+                return ResourceManager.GetString("GetDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Aktualnie obowiązująca cena złota - 1
         ///Seria ostatnich wybranych notowań cen złota - 2
         ///Cena złota opublikowana w dniu dzisiejszym (albo brak danych) - 3
-        ///Najwyższa cena złota z ostatnich 30 notowań - 4.
+        ///Najwyższa cena złota z ostatnich 30 notowań - 4
+        ///Cena złota opublikowana w dni konkretnym dniu (albo brak danych) - 5
+        ///Średnia cena złota z określonej liczby ostatnich notowań - 6.
         /// </summary>
         internal static string GoldOptions {
             get {
                 return ResourceManager.GetString("GoldOptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Notowanie ceny złota w dniu {0} wynosi {1} PLN&quot;.
+        /// </summary>
+        internal static string GoldRateInSpecificDate {
+            get {
+                return ResourceManager.GetString("GoldRateInSpecificDate", resourceCulture);
             }
         }
         
@@ -146,6 +196,15 @@ namespace ProjektFinalny {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Brak notowania złoto w dniu {0}.
+        /// </summary>
+        internal static string NoRatesInSpecificDate {
+            get {
+                return ResourceManager.GetString("NoRatesInSpecificDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Brak notowań w dniu dzisiejszym.
         /// </summary>
         internal static string NoRatesToday {
@@ -173,6 +232,15 @@ namespace ProjektFinalny {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Najwyższa cena waluty: {0} z ostatnich 30 notowań to: {1} z dnia: {2}.
+        /// </summary>
+        internal static string TopCurrencyRate {
+            get {
+                return ResourceManager.GetString("TopCurrencyRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Najwyższa cena złota z ostatnich 30 notowań to: {0} z dnia: {1}.
         /// </summary>
         internal static string TopGoldRate {
@@ -187,6 +255,15 @@ namespace ProjektFinalny {
         internal static string WhatToDo {
             get {
                 return ResourceManager.GetString("WhatToDo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nieprawidłowy format daty.
+        /// </summary>
+        internal static string WrongDateFormat {
+            get {
+                return ResourceManager.GetString("WrongDateFormat", resourceCulture);
             }
         }
     }
